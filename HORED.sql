@@ -31,6 +31,7 @@ INSERT INTO ROLES VALUES ('patient');
 
 SELECT * FROM ROLES;
 				--INSER INTO USERS
+
 INSERT INTO USERS VALUES ('Petrov', 'Ivan', 2, 'ipetrovdoc', 'w2f30n7f?', 'petrovivan1245@gmail.com');
 INSERT INTO USERS VALUES ('Tuz', 'Oleh', 2, 'otuzdoc', 'ja4>f[hs5bG', 'tuztuzzz@gmail.com');
 INSERT INTO USERS VALUES ('Buga', 'Mykola', 2, 'mbugadoc', 'gR6d5[(jNl', 'nicolasbbb@ukr.net');
