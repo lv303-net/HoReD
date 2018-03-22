@@ -1,0 +1,9 @@
+C:\Users\user\Desktop\HoReD\HoReD\HoReD_Entts\bin\Debug\netstandard2.0\HoReD_Entts.deps.json
+C:\Users\user\Desktop\HoReD\HoReD\HoReD_Entts\bin\Debug\netstandard2.0\HoReD_Entts.dll
+C:\Users\user\Desktop\HoReD\HoReD\HoReD_Entts\bin\Debug\netstandard2.0\HoReD_Entts.pdb
+C:\Users\user\Desktop\HoReD\HoReD\HoReD_Entts\obj\Debug\netstandard2.0\HoReD_Entts.csprojResolveAssemblyReference.cache
+C:\Users\user\Desktop\HoReD\HoReD\HoReD_Entts\obj\Debug\netstandard2.0\HoReD_Entts.csproj.CoreCompileInputs.cache
+C:\Users\user\Desktop\HoReD\HoReD\HoReD_Entts\obj\Debug\netstandard2.0\HoReD_Entts.AssemblyInfoInputs.cache
+C:\Users\user\Desktop\HoReD\HoReD\HoReD_Entts\obj\Debug\netstandard2.0\HoReD_Entts.AssemblyInfo.cs
+C:\Users\user\Desktop\HoReD\HoReD\HoReD_Entts\obj\Debug\netstandard2.0\HoReD_Entts.dll
+C:\Users\user\Desktop\HoReD\HoReD\HoReD_Entts\obj\Debug\netstandard2.0\HoReD_Entts.pdb
