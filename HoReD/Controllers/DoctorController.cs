@@ -10,58 +10,106 @@ using System.Web.Http;
 
 namespace HoReD.Controllers
 {
+    /// <summary>
+    /// Controller that represents information about Doctors
+    /// </summary>
     public class DoctorController : ApiController
     {
+        /// <summary>
+        /// Gets the Doctor from table Doctors
+        /// </summary>
+        /// <param name="id">an integer number,id from table Doctors/// </param>
+        /// <returns>An instance of the class Doctor with id=id</returns>
         [HttpGet]
         [ActionName("GetDoctorByID")]
         public Doctor Get(int id)
         {
-            SqlConnection myConnection = new SqlConnection(ConfigurationManager.ConnectionStrings["MyConString"].ConnectionString);
-            SqlCommand sqlCmd = new SqlCommand("Select * from Doctors where IDDoctors=" + id + "", myConnection);
-            myConnection.Open();
-            SqlDataReader reader = sqlCmd.ExecuteReader();
             Doctor doctor = null;
-            while (reader.Read())
+            try
             {
-                doctor = new Doctor();
-                doctor.Id = Convert.ToInt32(reader.GetValue(0));
-                doctor.IdProfession = Convert.ToInt32(reader.GetValue(1));
-                doctor.StartHour = TimeSpan.Parse(reader.GetValue(2).ToString());
-                doctor.EndHour = TimeSpan.Parse(reader.GetValue(3).ToString());
-                doctor.EmployingDate = Convert.ToDateTime(reader.GetValue(4));
-                doctor.Image = reader.GetValue(5).ToString();
+                using (var myConnection =
+                    new SqlConnection(ConfigurationManager.ConnectionStrings["MyConString"].ConnectionString))
+                {
+                    using (var sqlCmd = new SqlCommand("Select * from Doctors where IDDoctors=" + id + "", myConnection))
+                    {
+                        myConnection.Open();
+                        using (var reader = sqlCmd.ExecuteReader())
+                        {
+                            while (reader.Read())
+                                doctor = new Doctor
+                                {
+                                    Id = Convert.ToInt32(reader.GetValue(0)),
+                                    IdProfession = Convert.ToInt32(reader.GetValue(1)),
+                                    StartHour = TimeSpan.Parse(reader.GetValue(2).ToString()),
+                                    EndHour = TimeSpan.Parse(reader.GetValue(3).ToString()),
+                                    EmployingDate = Convert.ToDateTime(reader.GetValue(4)),
+                                    Image = reader.GetValue(5).ToString()
+                                };
+                        }
+                    }
+                }
             }
-            myConnection.Close();
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+                throw;
+            }
+
             return doctor;
         }
 
+        /// <summary>
+        /// Gets full infiormation about Doctors in database
+        /// </summary>
+        /// <returns>List of instances of the class DoctorInfo</returns>
+        /// <example>http://localhost:*****/api/Doctor/</example>
         [HttpGet]
         [ActionName("GetDoctors")]
         public List<DoctorInfo> GetDoctors()
         {
-            List<DoctorInfo> list = new List<DoctorInfo>();
-            SqlConnection myConnection = new SqlConnection(ConfigurationManager.ConnectionStrings["MyConString"].ConnectionString);
-            SqlCommand sqlCmd = new SqlCommand("GETINFOABOUTDOCTORS", myConnection);
-            myConnection.Open();
-            SqlDataReader reader = sqlCmd.ExecuteReader();
-            if (reader.HasRows)
+            var list = new List<DoctorInfo>();
+            try
             {
-                while (reader.Read())
+                using (var myConnection =
+                    new SqlConnection(ConfigurationManager.ConnectionStrings["MyConString"].ConnectionString))
                 {
-                    DoctorInfo doctor = new DoctorInfo();
-                    doctor.Id = Convert.ToInt32(reader.GetValue(0));
-                    doctor.FirstName = reader.GetValue(1).ToString();
-                    doctor.LastName = reader.GetValue(2).ToString();
-                    doctor.ProfessionName = reader.GetValue(3).ToString();
-                    doctor.StartHour = TimeSpan.Parse(reader.GetValue(4).ToString());
-                    doctor.EndHour = TimeSpan.Parse(reader.GetValue(5).ToString());
-                    doctor.EmployingDate = Convert.ToDateTime(reader.GetValue(6));
-                    doctor.Image = reader.GetValue(7).ToString();
-                    list.Add(doctor);
+                    using (var sqlCmd = new SqlCommand("GETINFOABOUTDOCTORS", myConnection))
+                    {
+                        myConnection.Open();
+                        using (var reader = sqlCmd.ExecuteReader())
+                        {
+                            if (reader.HasRows)
+                            {
+                                while (reader.Read())
+                                {
+                                    var doctor = new DoctorInfo
+                                    {
+                                        Id = Convert.ToInt32(reader.GetValue(0)),
+                                        FirstName = reader.GetValue(1).ToString(),
+                                        LastName = reader.GetValue(2).ToString(),
+                                        ProfessionName = reader.GetValue(3).ToString(),
+                                        StartHour = TimeSpan.Parse(reader.GetValue(4).ToString()),
+                                        EndHour = TimeSpan.Parse(reader.GetValue(5).ToString()),
+                                        EmployingDate = Convert.ToDateTime(reader.GetValue(6)),
+                                        Image = reader.GetValue(7).ToString()
+                                    };
+                                    list.Add(doctor);
+                                }
+                            }
+                            else
+                            {
+                                return list;
+                            }
+                        }
+                    }
                 }
             }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+                throw;
+            }
 
-            myConnection.Close();
             return list;
         }
     }
