@@ -7,3 +7,17 @@ C:\Users\user\Desktop\HoReD\HoReD\HoReD_Entts\obj\Debug\netstandard2.0\HoReD_Ent
 C:\Users\user\Desktop\HoReD\HoReD\HoReD_Entts\obj\Debug\netstandard2.0\HoReD_Entts.AssemblyInfo.cs
 C:\Users\user\Desktop\HoReD\HoReD\HoReD_Entts\obj\Debug\netstandard2.0\HoReD_Entts.dll
 C:\Users\user\Desktop\HoReD\HoReD\HoReD_Entts\obj\Debug\netstandard2.0\HoReD_Entts.pdb
+F:\HoReD\HoReD_Entts\bin\Debug\netstandard2.0\HoReD_Entts.deps.json
+F:\HoReD\HoReD_Entts\bin\Debug\netstandard2.0\HoReD_Entts.dll
+F:\HoReD\HoReD_Entts\bin\Debug\netstandard2.0\HoReD_Entts.pdb
+F:\HoReD\HoReD_Entts\obj\Debug\netstandard2.0\HoReD_Entts.csprojResolveAssemblyReference.cache
+F:\HoReD\HoReD_Entts\obj\Debug\netstandard2.0\HoReD_Entts.csproj.CoreCompileInputs.cache
+F:\HoReD\HoReD_Entts\obj\Debug\netstandard2.0\HoReD_Entts.AssemblyInfoInputs.cache
+F:\HoReD\HoReD_Entts\obj\Debug\netstandard2.0\HoReD_Entts.AssemblyInfo.cs
+F:\HoReD\HoReD_Entts\obj\Debug\netstandard2.0\HoReD_Entts.dll
+F:\HoReD\HoReD_Entts\obj\Debug\netstandard2.0\HoReD_Entts.pdb
+F:\HoReD\HoReD_Entts\bin\Debug\netstandard2.0\System.Configuration.dll
+F:\HoReD\HoReD_Entts\bin\Debug\netstandard2.0\System.Security.dll
+F:\HoReD\HoReD_Entts\bin\Debug\netstandard2.0\System.Configuration.xml
+F:\HoReD\HoReD_Entts\bin\Debug\netstandard2.0\System.Security.xml
+F:\HoReD\HoReD_Entts\obj\Debug\netstandard2.0\HoReD_Entts.csproj.CopyComplete

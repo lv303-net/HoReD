@@ -7,62 +7,33 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
+using HoReD_Entts.Services;
 
 namespace HoReD.Controllers
 {
     public class DoctorController : ApiController
     {
+        private readonly IDoctorService _service;
+
+        public DoctorController(IDoctorService service)
+        {
+            _service = service;
+        }
+
         [HttpGet]
         [ActionName("GetDoctorByID")]
         public Doctor Get(int id)
         {
-            SqlConnection myConnection = new SqlConnection(ConfigurationManager.ConnectionStrings["MyConString"].ConnectionString);
-            SqlCommand sqlCmd = new SqlCommand("Select * from Doctors where IDDoctors=" + id + "", myConnection);
-            myConnection.Open();
-            SqlDataReader reader = sqlCmd.ExecuteReader();
-            Doctor doctor = null;
-            while (reader.Read())
-            {
-                doctor = new Doctor();
-                doctor.Id = Convert.ToInt32(reader.GetValue(0));
-                doctor.IdProfession = Convert.ToInt32(reader.GetValue(1));
-                doctor.StartHour = TimeSpan.Parse(reader.GetValue(2).ToString());
-                doctor.EndHour = TimeSpan.Parse(reader.GetValue(3).ToString());
-                doctor.EmployingDate = Convert.ToDateTime(reader.GetValue(4));
-                doctor.Image = reader.GetValue(5).ToString();
-            }
-            myConnection.Close();
-            return doctor;
+            
+            return _service.GetDoctorById(id);
         }
 
         [HttpGet]
         [ActionName("GetDoctors")]
         public List<DoctorInfo> GetDoctors()
         {
-            List<DoctorInfo> list = new List<DoctorInfo>();
-            SqlConnection myConnection = new SqlConnection(ConfigurationManager.ConnectionStrings["MyConString"].ConnectionString);
-            SqlCommand sqlCmd = new SqlCommand("GETINFOABOUTDOCTORS", myConnection);
-            myConnection.Open();
-            SqlDataReader reader = sqlCmd.ExecuteReader();
-            if (reader.HasRows)
-            {
-                while (reader.Read())
-                {
-                    DoctorInfo doctor = new DoctorInfo();
-                    doctor.Id = Convert.ToInt32(reader.GetValue(0));
-                    doctor.FirstName = reader.GetValue(1).ToString();
-                    doctor.LastName = reader.GetValue(2).ToString();
-                    doctor.ProfessionName = reader.GetValue(3).ToString();
-                    doctor.StartHour = TimeSpan.Parse(reader.GetValue(4).ToString());
-                    doctor.EndHour = TimeSpan.Parse(reader.GetValue(5).ToString());
-                    doctor.EmployingDate = Convert.ToDateTime(reader.GetValue(6));
-                    doctor.Image = reader.GetValue(7).ToString();
-                    list.Add(doctor);
-                }
-            }
-
-            myConnection.Close();
-            return list;
+            
+            return _service.GetDoctors();
         }
     }
 }
