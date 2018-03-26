@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HoReD", "HoReD\HoReD.csproj
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HoReD.Tests", "HoReD.Tests\HoReD.Tests.csproj", "{3F271B71-ADF1-402C-9CDF-CE5D7BD4B5AD}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HoReD_Entts", "HoReD_Entts\HoReD_Entts.csproj", "{D1A7848C-3C77-4112-87F7-30F298CA9EAE}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{3F271B71-ADF1-402C-9CDF-CE5D7BD4B5AD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3F271B71-ADF1-402C-9CDF-CE5D7BD4B5AD}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3F271B71-ADF1-402C-9CDF-CE5D7BD4B5AD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D1A7848C-3C77-4112-87F7-30F298CA9EAE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D1A7848C-3C77-4112-87F7-30F298CA9EAE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D1A7848C-3C77-4112-87F7-30F298CA9EAE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D1A7848C-3C77-4112-87F7-30F298CA9EAE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
